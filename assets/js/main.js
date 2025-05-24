@@ -11,34 +11,46 @@ $( function() {
     });
     wow.init();
 
-    // scrollIt
-    $.scrollIt({
-        upKey: 38,                // key code to navigate to the next section
-        downKey: 40,              // key code to navigate to the previous section
-        easing: 'linear',         // the easing function for animation
-        scrollTime: 700,          // how long (in ms) the animation takes
-        activeClass: 'active',    // class given to the active nav element
-        onPageChange: null,       // function(pageIndex) that is called when page is changed
-        topOffset: -100            // offste (in px) for fixed top navigation
-      });
-
-
-    // ---------- nav scroll -----------
-    wind.on("scroll", function() {
-
-        var bodyScroll = wind.scrollTop(),
-            navbar = $(".navbar")
-
-        if (bodyScroll > 200) {
-
-            navbar.addClass("nav-scroll");
-
-        } else {
-
-            navbar.removeClass("nav-scroll");
+    // Remove scrollIt initialization and replace with custom scroll
+    $('.navbar .nav-link[data-scroll-nav]').on('click', function(e) {
+        e.preventDefault();
+        var target = $('[data-scroll-index="' + $(this).data('scroll-nav') + '"]');
+        if (target.length) {
+            $('html, body').animate({
+                scrollTop: target.offset().top - 70
+            }, 800);
+            
+            // Update active state
+            $('.navbar .nav-link').removeClass('active');
+            $(this).addClass('active');
         }
     });
-    
+
+    // Update active state on scroll
+    wind.on('scroll', function() {
+        var scrollTop = wind.scrollTop();
+        var navbar = $(".navbar.style-4");
+        
+        // Update navbar style
+        if (scrollTop > 50) {
+            navbar.addClass("nav-scroll");
+        } else {
+            navbar.removeClass("nav-scroll");
+        }
+
+        // Update active menu item
+        $('[data-scroll-index]').each(function() {
+            var section = $(this);
+            var sectionTop = section.offset().top - 100;
+            var sectionBottom = sectionTop + section.outerHeight();
+            
+            if (scrollTop >= sectionTop && scrollTop < sectionBottom) {
+                var index = section.data('scroll-index');
+                $('.navbar .nav-link').removeClass('active');
+                $('.navbar .nav-link[data-scroll-nav="' + index + '"]').addClass('active');
+            }
+        });
+    });
 
     // ---------- to top -----------
     wind.on("scroll", function() {
@@ -1308,4 +1320,5 @@ $( function() {
     var containerEl = document.querySelector('.mix-container');
     var mixer = mixitup(containerEl);
 } );
+
 
