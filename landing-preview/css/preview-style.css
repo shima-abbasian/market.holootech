@@ -1,15 +1,14 @@
 @font-face {
-  font-family: 'Vazirmatn';
-  src: url('../../assets/fonts/persian/Vazirmatn/Vazirmatn-RD[wght].woff2') format('woff2 supports variations'),
-       url('../../assets/fonts/persian/Vazirmatn/Vazirmatn-RD[wght].woff2') format('woff2-variations');
-  font-weight: 100 900;
+  font-family: 'IRANSans';
+  src: url('../fonts/iransans/woff2/IRANSansWeb.woff2') format('woff2');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 body {
   direction: rtl;
-  font-family: 'Vazirmatn', sans-serif; }
+  font-family: "IRANSans", sans-serif; }
 
 h1 {
   font-weight: 700; }

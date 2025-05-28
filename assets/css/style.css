@@ -439,10 +439,25 @@ TABLE OF CONTENTS:-
 ================================================================*/
 
 @font-face {
-  font-family: 'Vazirmatn';
-  src: url('../fonts/persian/Vazirmatn/Vazirmatn-RD[wght].woff2') format('woff2 supports variations'),
-       url('../fonts/persian/Vazirmatn/Vazirmatn-RD[wght].woff2') format('woff2-variations');
-  font-weight: 100 900;
+  font-family: 'IRANSans';
+  src: url('../fonts/IRANSans/woff2/IRANSansWeb.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANSans';
+  src: url('../fonts/IRANSans/woff2/IRANSansWeb_Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANSans';
+  src: url('../fonts/IRANSans/woff2/IRANSansWeb_Light.woff2') format('woff2');
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
@@ -472,7 +487,7 @@ html::-webkit-scrollbar-corner {
 
 body {
   direction: rtl;
-  font-family: "Vazirmatn", sans-serif;
+  font-family: "IRANSans", IRANSans;
   text-decoration: none;
   font-size: 0.9em;
   overflow-x: hidden;
@@ -2836,14 +2851,14 @@ TABLE OF CONTENTS:-
 			[ * global Section ] 
 ================================================================*/
 
-@font-face {
+/* @font-face {
   font-family: 'Vazirmatn';
   src: url('../fonts/persian/Vazirmatn/Vazirmatn-RD[wght].woff2') format('woff2 supports variations'),
        url('../fonts/persian/Vazirmatn/Vazirmatn-RD[wght].woff2') format('woff2-variations');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 /* --------------- global --------------- */
 *,
@@ -2870,7 +2885,7 @@ html::-webkit-scrollbar-corner {
 
 body {
   direction: rtl;
-  font-family: "Vazirmatn", sans-serif;
+  font-family: "IRANSans", IRANSans;
   text-decoration: none;
   font-size: 0.9em;
   overflow-x: hidden;
